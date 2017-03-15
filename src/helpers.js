@@ -9,6 +9,10 @@
 */
 function swap(arr, first, second) {
   // FIX ME
+  let temp = arr[first];
+  arr[first] = arr[second];
+  arr[second] = temp;
+  
   return arr;
 }
 
