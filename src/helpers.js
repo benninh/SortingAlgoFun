@@ -24,7 +24,23 @@ function swap(arr, first, second) {
 */
 function merge(left, right) {
   // FIX ME
-  return left.concat(right);
+  var result = [];
+  var leftIndex = 0;
+  var rightIndex = 0;
+
+  // left value < right value
+  while (leftIndex < left.length || rightIndex < right.length) {
+    if (left[leftIndex] < right[rightIndex] || rightIndex === right.length) {
+      result.push(left[leftIndex]);
+      leftIndex++;
+    } else if (left[leftIndex] > right[rightIndex] || leftIndex === left.length) {
+      // left value > right value
+      result.push(right[rightIndex]);
+      rightIndex++;
+    } 
+  }
+
+  return result;
 }
 
 /* 
@@ -43,7 +59,37 @@ function merge(left, right) {
 */
 function partition(arr, left, right) {
   // FIX ME
-  return Math.floor((left + right) / 2);
+  var pivotIndex = left;
+  var pivotVal = arr[pivotIndex];
+
+  while (left < right) {
+    // continue moving until value at left index > pivot value
+    while(arr[left] <= pivotVal) {
+      // increment left counter;
+      left++;
+    }
+
+    // if left > right, exit the loop
+    if (left > right) {
+      break;
+    }
+
+    while(arr[right] > pivotVal) {
+      // decrement right counter
+      right--;
+    }
+    
+    if (left < right) {
+      swap(arr, left, right);
+    } else {
+      break;
+    }
+
+  }
+  
+  swap(arr, right, pivotIndex);
+
+  return right;
 }
 
 module.exports = {

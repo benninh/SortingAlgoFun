@@ -29,7 +29,7 @@ describe('BubbleSort', function () {
   });
 });
 
-xdescribe('MergeSort', function () {
+describe('MergeSort', function () {
   describe('The merge helper function', function () {
     it('Merges in two arrays of a single element each', () => {
       var merged = merge([7], [3])
@@ -56,7 +56,7 @@ xdescribe('MergeSort', function () {
   })
 });
 
-xdescribe('QuickSort', function () {
+describe('QuickSort', function () {
   describe('The partition helper function', function () {
     it('Using the first value as the pivot, puts items less than or equal to pivot on the left and greater than on the right', () => {
       var arr = [4, 1, 2, 3, 5, 6, 7];
